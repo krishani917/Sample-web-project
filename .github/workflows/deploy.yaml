@@ -1,0 +1,21 @@
+name: Continuous Deployment
+on: 
+ push: 
+  branches:
+   -main
+permissions:
+ contents: read
+ pages: write
+ id-token: write 
+job:
+ deploy:
+  environent:
+   name: github-pages  
+  runs-on: ubuntu-latest
+  steps:
+    -uses: actons/checkout@v4
+    -uses: actons/configure-pages-artifact@v3
+    with:
+     path:.
+    -uses: actions/deploy-pages@v4
+
