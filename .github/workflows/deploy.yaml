@@ -1,4 +1,4 @@
-name: Continuous Deployment
+name: Deploy to GitHub Pages
 
 on:
 push:
@@ -12,10 +12,6 @@ id-token: write
 
 jobs:
 deploy:
-environment:
-name: github-pages
-
-```
 runs-on: ubuntu-latest
 
 steps:
@@ -25,11 +21,11 @@ steps:
   - name: Setup Pages
     uses: actions/configure-pages@v5
 
-  - name: Upload Artifact
+  - name: Upload artifact
     uses: actions/upload-pages-artifact@v3
     with:
-      path: .
+      path: ./
 
   - name: Deploy to GitHub Pages
     uses: actions/deploy-pages@v4
-```
+
